@@ -6,13 +6,13 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import ApproveRejectButtons from "@/components/ApproveRejectButtons";
 
-const page = async ({
+async function page({
   params,
 }: {
-  params: {
+  params: Promise<{
     id: string;
-  };
-}) => {
+  }>;
+}) {
   const { userId } = await auth();
 
   if (!userId) {
